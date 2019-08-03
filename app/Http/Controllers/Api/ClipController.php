@@ -48,8 +48,8 @@ class ClipController extends ApiBaseController
         if ($user) {
             $clips = Clip::where('user_id', $user->id)
                 ->orderBy('created_at', 'desc')
-                ->take(10)
-                ->get();
+                ->simplePaginate(5);
+            //->get();
             return $this->sendResponse($clips->toArray(), 'Clips retrieved successfully.');
         } else {
             return $this->sendUnauth();
