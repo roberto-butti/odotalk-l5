@@ -56,10 +56,8 @@ class UserController extends ApiBaseController
             $user = Auth::user();
             $success['token'] =  $user->createToken('MyApp')->accessToken;
             return $this->sendResponse($success, 'User logged successfully.');
-            //return response()->json(['success' => $success], $this->successStatus);
         } else {
-            return $this->sendError('Unauthorised.', [], 401);
-            //return response()->json(['error' => 'Unauthorised'], 401);
+            return $this->sendUnauth();
         }
     }
 }
