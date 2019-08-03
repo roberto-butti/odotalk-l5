@@ -116,7 +116,8 @@ class ClipController extends ApiBaseController
         $input = $request->all();
         $validator = Validator::make($input, [
             'filename' => 'required',
-            //'detail' => 'required'
+            'caption' => 'required'
+
         ]);
         if ($validator->fails()) {
             return $this->sendError('Validation Error.', $validator->errors());
