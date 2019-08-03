@@ -8,7 +8,8 @@ class Clip extends Model
 {
     protected $fillable = [
         'caption',
-        'filename'
+        'filename',
+        'user_id'
     ];
 
     public function user()
